@@ -32,8 +32,7 @@ class Department {
     `;
     connection.query(query, departmentName, (err, res) => {
       if (err) throw err;
-      console.log(res);
-      return res;
+      console.table(res);
     });
   }
 
@@ -89,7 +88,7 @@ class Department {
         const salary = parseInt(employee.salary);
         totalBudget += salary;
       });
-      console.log(totalBudget);
+      console.table([{ 'Total Budget': totalBudget }]);
     });
   }
 }

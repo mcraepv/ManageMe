@@ -41,7 +41,7 @@ class Manager extends Employee {
       console.log(res);
       managerID = res[0].id;
       const query = `
-    SELECT e.first_name, e.last_name, r.title, r.salary, d.department_name
+    SELECT e.first_name, e.last_name, r.title, r.salary, d.department_name, e.role_id, e.manager_id
     FROM employee e
     LEFT JOIN employee_role r
     ON e.role_id = r.id
@@ -50,8 +50,7 @@ class Manager extends Employee {
     WHERE e.manager_id = ?
     `;
       connection.query(query, managerID, (err, res) => {
-        console.log(res);
-        return res;
+        console.table(res);
       });
     });
   }

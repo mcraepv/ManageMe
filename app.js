@@ -1,5 +1,6 @@
 const mysql = require('mysql2');
-const inquirer = require('inquirer');
+const myInquirer = require('./assets/js/Inquire');
+const figlet = require('figlet');
 const Employee = require('./assets/js/Employee');
 const Manager = require('./assets/js/Manager');
 const Department = require('./assets/js/Department');
@@ -23,28 +24,39 @@ connection.connect((err) => {
 });
 
 async function initUI() {
-  const employee = new Employee('Jack', 'Donahue', 9, 3);
-  // employee.add();
-  // employee.updateRole(5, 6);
-  // employee.getByName();
-  // employee.delete();
-  // employee.getByName();
-  // employee.getAllEmployees();
+  figlet.text(
+    'ManageMe!',
+    {
+      font: 'univers',
+    },
+    (err, data) => {
+      if (err) throw err;
+      console.log(data);
+    }
+  );
 
-  const manager = new Manager('Jane', 'Doe', 2, 1);
-  // manager.getByName();
-  // manager.getAllUnder();
+  // const employee = new Employee('Jack', 'Donahue', 3, 3);
+  // // employee.add();
+  // // employee.updateRole(5, 6);
+  // // employee.getByName();
+  // // employee.delete();
+  // // employee.getByName();
+  // // employee.getAllEmployees();
 
-  const department = new Department('Sales');
-  department.getAllUnder();
-  // department.delete();
-  // department.getAllUnder();
-  department.getBudget();
+  // const manager = new Manager('John', 'Smith', 7, 1);
+  // // manager.getByName();
+  // // manager.getAllUnder();
 
-  const role = new Role('Business Development', 70000.0, 2);
-  // role.add();
-  // employee.add();
-  // role.getAllUnder();
-  // role.delete();
-  // role.getAllUnder();
+  // const department = new Department('Sales');
+  // // department.getAllUnder();
+  // // department.delete();
+  // // department.getAllUnder();
+  // department.getBudget();
+
+  // const role = new Role('Business Development', 70000.0, 2);
+  // // role.add();
+  // // employee.add();
+  // // role.getAllUnder();
+  // // role.delete();
+  // // role.getAllUnder();
 }

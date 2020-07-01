@@ -1,4 +1,5 @@
 const mysql = require('mysql2');
+const cTable = require('console.table');
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -35,8 +36,7 @@ class Employee {
     AND e.last_name LIKE ?`;
     connection.query(query, [firstName, lastName], (err, res) => {
       if (err) throw err;
-      console.log(res);
-      return res;
+      console.table(res);
     });
   }
 
@@ -111,8 +111,7 @@ class Employee {
     ON r.department_id = d.id`;
     connection.query(query, (err, res) => {
       if (err) throw err;
-      console.log(res);
-      return res;
+      console.table(res);
     });
   }
 }
