@@ -137,7 +137,6 @@ async function initUI() {
     setTimeout(() => {
       initUI();
     }, 1000);
-    break;
   }
 
   async function initDelete() {

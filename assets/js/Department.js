@@ -42,7 +42,7 @@ class Department {
     }
     const query = `
     INSERT INTO department
-    (department)
+    (department_name)
     VALUES
     (?)
     `;

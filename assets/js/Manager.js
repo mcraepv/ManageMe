@@ -38,7 +38,6 @@ class Manager extends Employee {
 
     connection.query(managerIDQuery, [firstName, lastName], (err, res) => {
       if (err) throw err;
-      console.log(res);
       managerID = res[0].id;
       const query = `
     SELECT e.first_name, e.last_name, r.title, r.salary, d.department_name, e.role_id, e.manager_id
