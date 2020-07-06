@@ -34,8 +34,7 @@ class Role {
     `;
     connection.query(query, title, (err, res) => {
       if (err) throw err;
-      console.log(res);
-      return res;
+      console.table(res);
     });
   }
   add(title, salary, departmentID) {
