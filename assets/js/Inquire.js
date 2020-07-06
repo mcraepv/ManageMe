@@ -51,7 +51,7 @@ class Inquire {
 
   async roleAdd() {
     const whatRole = await inquirer.prompt(addQs.roleAdd);
-    return whatRole.roleName;
+    return whatRole;
   }
 
   async employeeAdd() {
@@ -165,8 +165,17 @@ const addQs = {
     {
       type: 'prompt',
       name: 'roleName',
-      message:
-        'What role would you like to add (please provide role name and department ID)?',
+      message: 'What role would you like to add?',
+    },
+    {
+      type: 'prompt',
+      name: 'roleSalary',
+      message: 'What is the salary of the role?',
+    },
+    {
+      type: 'prompt',
+      name: 'deptID',
+      message: 'Is the department ID of the role?',
     },
   ],
   employeeAdd: [
@@ -175,11 +184,6 @@ const addQs = {
       name: 'employeeName',
       message:
         "What is the employee's name? (please provide first name and last name)?",
-    },
-    {
-      type: 'confirm',
-      name: 'isManager',
-      message: 'Is this employee a manager?',
     },
     {
       type: 'prompt',
@@ -200,11 +204,6 @@ const updateQs = [
     name: 'employeeName',
     message:
       'What employee would you like to update (please provide first name and last name?',
-  },
-  {
-    type: 'confirm',
-    name: 'isManager',
-    message: 'Is this employee a manager?',
   },
   {
     type: 'prompt',
@@ -245,9 +244,7 @@ const deleteQs = {
     {
       type: 'prompt',
       name: 'employeeName',
-      message: `What employee would you like to delete (please provide first and last name)?\n
-        (note: if this employee is a manager, be sure to update the managerIDs of all those\n
-          who report to them. You can do this by updating the roles of each employee)`,
+      message: `What employee would you like to delete (please provide first and last name)?`,
     },
   ],
 };

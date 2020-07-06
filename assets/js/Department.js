@@ -81,14 +81,14 @@ class Department {
     WHERE d.id = r.department_id
     AND d.department_name = ?
     `;
-    connection.query(query, departmentName, (err, res) => {
+    return connection.query(query, departmentName, (err, res) => {
       if (err) throw err;
       let totalBudget = 0;
       res.forEach((employee) => {
         const salary = parseInt(employee.salary);
         totalBudget += salary;
       });
-      console.table([{ 'Total Budget': totalBudget }]);
+      return console.table([{ 'Total Budget': totalBudget }]);
     });
   }
 }

@@ -28,11 +28,11 @@ FROM employee e
 RIGHT JOIN employee_role r ON e.role_id = r.id
 RIGHT JOIN department d ON r.department_id = d.id;
 
-SELECT r.salary 
-    FROM employee_role r
-    LEFT JOIN employee e
-    LEFT JOIN department d
-    ON r.department_id = d.id
-    ON e.role_id = r.id
-    WHERE d.id = r.department_id
-    AND d.department_name = ?
+SELECT r.salary
+FROM employee e
+LEFT JOIN employee_role r
+LEFT JOIN department d
+ON r.department_id = d.id
+ON e.role_id = r.id
+WHERE d.id = r.department_id
+AND d.department_name = 'Sales';
