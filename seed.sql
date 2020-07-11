@@ -21,7 +21,6 @@ INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Warre
 
 SELECT * FROM department;
 SELECT * FROM employee_role;
-SELECT * FROM employee;
 
 SELECT e.First_name, e.last_name, r.title, d.department_name, e.id
 FROM employee e

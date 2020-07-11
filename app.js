@@ -5,33 +5,19 @@ const Employee = require('./assets/js/Employee');
 const Manager = require('./assets/js/Manager');
 const Department = require('./assets/js/Department');
 const Role = require('./assets/js/Role');
+const connection = require('./assets/js/connection');
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-
-  port: 3306,
-
-  user: 'root',
-
-  password: 'macDATAbase!6799',
-  database: 'employee_db',
-});
-
-connection.connect((err) => {
-  if (err) throw err;
-  console.log('Connected as id ' + connection.threadId);
-  figlet.text(
-    'ManageMe!',
-    {
-      font: 'univers',
-    },
-    (err, data) => {
-      if (err) throw err;
-      console.log(data);
-      initUI();
-    }
-  );
-});
+figlet.text(
+  'ManageMe!',
+  {
+    font: 'univers',
+  },
+  (err, data) => {
+    if (err) throw err;
+    console.log(data);
+    initUI();
+  }
+);
 
 async function initUI() {
   const universalEmployee = new Employee('', '', 0, 0);

@@ -1,16 +1,6 @@
 const mysql = require('mysql2');
 const cTable = require('console.table');
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-
-  port: 3306,
-
-  user: 'root',
-
-  password: 'macDATAbase!6799',
-  database: 'employee_db',
-});
+const connection = require('./connection');
 
 class Employee {
   constructor(firstName, lastName, roleID, managerID) {
